@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, request, redirect, url_for
 
-import nltk, glob, random
+import nltk, glob, random, os
 filelist = glob.glob("./np_chunks/*.npch")
 collfile = file("np_collection.npch", 'r')
 np_collection = collfile.read().split("~")
