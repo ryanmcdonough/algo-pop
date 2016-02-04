@@ -2,12 +2,12 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for
 
 import nltk, glob, random, os
-filelist = glob.glob("./np_chunks/*.npch")
+filelist = glob.glob("./template_treatments/*.npch")
 collfile = file("np_collection.npch", 'r')
-np_collection = collfile.read().split("~")
+np_collection = collfile.readlines()
 collfile.close()
 collfile = file("ne_collection.nech", 'r')
-ne_collection = collfile.read().split("~")
+ne_collection = collfile.readlines()
 collfile.close()
 
 app = Flask(__name__)
@@ -107,5 +107,5 @@ def pickle():
 if __name__ == "__main__":
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
