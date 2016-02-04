@@ -12,11 +12,12 @@ collfile.close()
 
 app = Flask(__name__)
 
-video = {}
-video['title'] =  "Click the pickle button and..."
-video['text'] = "... make a tasty pickle"
 @app.route("/")
 def index():
+    video = {}
+    video['title'] =  "Click the pickle button and..."
+    video['text'] = "... make a tasty pickle"
+
     return render_template('the_pickler.html', video=video)
 
 @app.route("/pickle", methods=['POST'])
@@ -97,11 +98,11 @@ def pickle():
     newtext = []
     for leaf in replacedTree.leaves():
         newtext.append(nltk.tag.str2tuple(str(leaf))[0])
-
+    video = {}
     video['title'] = request.form['title']
     video['text'] = " ".join(newtext)
     
-    return redirect(url_for('index'))
+    return render_template('the_pickler.html', video=video)
 
 if __name__ == "__main__":
     # Bind to PORT if defined, otherwise default to 5000.
