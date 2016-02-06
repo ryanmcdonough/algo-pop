@@ -93,7 +93,6 @@ def pickle():
         #otherwise find all noun-phrases with identical tag orders
         matches = []
         np_coll_trees = [nltk.Tree.fromstring(string) for string in np_collection]
-        #current_Tags = 
         for tree in np_coll_trees:
             tags = []
             for leaf in tree.leaves():
@@ -121,6 +120,7 @@ def pickle():
     for leaf in replacedTree.leaves():
         newtext.append(nltk.tag.str2tuple(str(leaf))[0])
     newtext = " ".join(newtext).replace("LEAD", lead)
+    newtext = newtext.replace(" ,",",").replace(" .",".")
     video['title'] = request.form['title']
     video['text'] = newtext
     
@@ -129,5 +129,5 @@ def pickle():
 if __name__ == "__main__":
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port)
 
