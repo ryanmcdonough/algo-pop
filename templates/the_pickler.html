@@ -10,6 +10,6 @@
       </dl>
     </form>
   <ul class=pickles>
-    <li><h2>{{ video.title }}</h2>{{ video.text }}
+    <li><h2>{{ video.title }}</h2>{{ video.text|safe}}
   </ul>
 {% endblock %}

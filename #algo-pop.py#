@@ -98,6 +98,7 @@ def pickle():
             tags = []
             for leaf in tree.leaves():
                 tags.append(nltk.tag.str2tuple(leaf)[1])
+            if len(tags) == len(np[1]):
             if tags == np[1]:
                 matches.append(str(tree))
         #if we find matching noun-phrases, choose one at random for substitution
