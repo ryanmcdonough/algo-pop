@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     video = {}
-    video['title'] =  "Click the pickle button and..."
+    video['lead'] = "Click the pickle button..."
     video['text'] = "... make a tasty pickle"
 
     return render_template('the_pickler.html', video=video)
@@ -119,9 +119,15 @@ def pickle():
     newtext = []
     for leaf in replacedTree.leaves():
         newtext.append(nltk.tag.str2tuple(str(leaf))[0])
+    lead = request.form['lead']
+    if lead == "":
+        ne = random.choice([nltk.Tree.fromstring(ne) for ne in ne_collection if nltk.Tree.fromstring(ne).label() == "PERSON"])
+        lead = " ".join([nltk.tag.str2tuple(leaf)[0] for leaf in ne.leaves()])
+
+    lead = "<em>" + lead + "</em>"
     newtext = " ".join(newtext).replace("LEAD", lead)
     newtext = newtext.replace(" ,",",").replace(" .",".")
-    video['title'] = request.form['title']
+    video['lead'] = lead
     video['text'] = newtext
     
     return render_template('the_pickler.html', video=video)

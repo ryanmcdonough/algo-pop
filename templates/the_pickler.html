@@ -2,14 +2,14 @@
 {% block body %}
     <form action="{{ url_for('pickle') }}" method=post class=pickler>
       <dl>
-        <dt>Title:
-        <dd><input type=text size=30 name=title placeholder="Name your pickle">
+        <dt>Your star:
+        <dd><input type=text size=30 name=lead placeholder="Name your video-star">
         <!-- <dt>Text: -->
         <!-- <dd><textarea name=text rows=5 cols=40></textarea> -->
         <dd><input type=submit value=Pickle>
       </dl>
     </form>
   <ul class=pickles>
-    <li><h2>{{ video.title }}</h2>{{ video.text|safe}}
+    <li><h2>The latest {{ video.lead|safe}} vid:</h2>{{ video.text|safe}}
   </ul>
 {% endblock %}
