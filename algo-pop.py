@@ -19,8 +19,8 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     video = {}
-    video['lead'] = "music"
-    video['text'] = "Click the pickle button to make a tasty pickle"
+    video['lead'] = ""
+    video['text'] = ""
 
     return render_template('the_pickler.html', video=video)
 
