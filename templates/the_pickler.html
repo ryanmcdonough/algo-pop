@@ -1,15 +1,26 @@
 {% extends "layout.html" %}
 {% block body %}
     <form action="{{ url_for('pickle') }}" method=post class=pickler>
-      <dl>
-        <dt>Your star:
-        <dd><input type=text size=30 name=lead placeholder="Name your video-star">
-        <!-- <dt>Text: -->
-        <!-- <dd><textarea name=text rows=5 cols=40></textarea> -->
-        <dd><input type=submit value=Pickle>
-      </dl>
+	
+	<div class="form-group">
+    <div class="input-group input-group-lg">
+              <input type="text" name="lead" class="form-control " placeholder="Name your video-star">
+              <span class="input-group-btn">
+                  <button type="submit" class="btn btn-success">Create</button>
+              </span>
+          </div>
+	</div>
+
     </form>
-  <ul class=pickles>
-    <li><h2>The latest {{ video.lead|safe}} vid:</h2>{{ video.text|safe}}
-  </ul>
+	
+   	{% if video.lead %}
+         <div class="panel panel-success">
+		 <div class="panel-heading">The latest {{ video.lead|safe}} vid</div>
+		  <div class="panel-body">
+			{{ video.text|safe}}
+			</div>
+			</div>
+    {% endif %}
+	
+
 {% endblock %}

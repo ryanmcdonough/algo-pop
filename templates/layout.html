@@ -1,6 +1,14 @@
-<!doctype html>
-<title>Algo-Pop Video Pickler</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Algo-Pop</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 <div class=page>
   <h1>Algo-Pop Video Pickler</h1>
   {% for message in get_flashed_messages() %}
@@ -8,3 +16,6 @@
   {% endfor %}
   {% block body %}{% endblock %}
 </div>
+
+</body>
+</html>
