@@ -24,11 +24,15 @@
         <div class="panel panel-success">
             <div class="panel-heading">The latest {{ video.lead|safe}} vid</div>
             <div class="panel-body">
-                {{ video.text|safe}}
                 
-                {{ textList[0] }}
                 
-                {{ textList[1] }}
+                {{ textList[0]|safe }}
+                
+                {{ textList[1]|safe }}
+                
+                {{ textList[2]|safe }}
+                
+                {{ textList[3]|safe }}
             </div>
         </div>
         {% endif %}
