@@ -1,0 +1,6 @@
+.video {
+    width:640px;
+    height:400px;
+    display:block;
+    overflow:hidden;
+}

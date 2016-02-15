@@ -18,10 +18,17 @@
         </form>
 
         {% if video.lead %}
+        
+        {% set textList = video.text.split('<br><br>') %}
+        
         <div class="panel panel-success">
             <div class="panel-heading">The latest {{ video.lead|safe}} vid</div>
             <div class="panel-body">
                 {{ video.text|safe}}
+                
+                {{ textList[0] }}
+                
+                {{ textList[1] }}
             </div>
         </div>
         {% endif %}
