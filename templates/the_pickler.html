@@ -1,28 +1,27 @@
-{% extends "layout.html" %}
-{% block body %}
+{% extends "layout.html" %} {% block body %}
 <div class="row">
-<div class="col-md-8 col-md-offset-2">
-    <form action="{{ url_for('pickle') }}" method=post class=pickler>
-	
-	<div class="form-group">
-    <div class="input-group input-group-lg">
-              <input type="text" name="lead" class="form-control " placeholder="Name your video-star">
-              <span class="input-group-btn">
-                  <button type="submit" class="btn btn-success">Create</button>
-              </span>
-          </div>
-	</div>
+    <div class="col-md-8 col-md-offset-2">
+        <form action="{{ url_for('pickle') }}" method=post>
 
-    </form>
-	
-   	{% if video.lead %}
-         <div class="panel panel-success">
-		 <div class="panel-heading">The latest {{ video.lead|safe}} vid</div>
-		  <div class="panel-body">
-			{{ video.text|safe}}
-			</div>
-			</div>
-    {% endif %}
-	</div>
+            <div class="form-group">
+                <div class="input-group input-group-lg">
+                    <input type="text" name="lead" class="form-control " placeholder="Name Your Video Star">
+                    <span class="input-group-btn">
+                    <button type="submit" class="btn btn-success">Create</button>
+                </span>
+                </div>
+            </div>
+
+        </form>
+
+        {% if video.lead %}
+        <div class="panel panel-success">
+            <div class="panel-heading">The latest {{ video.lead|safe}} vid</div>
+            <div class="panel-body">
+                {{ video.text|safe}}
+            </div>
+        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
